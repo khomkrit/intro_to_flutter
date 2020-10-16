@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
           itemCount: 20,
           itemBuilder: (BuildContext context, int index) {
             return _buildTile(
-              imagePath: 'images/image.jpg',
+              imagePath: 'https://picsum.photos/seed/$index/200',
               title: 'Title $index', 
               description: 'Description $index');
           }
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               image: DecorationImage(
-                image: AssetImage(imagePath)
+                image: NetworkImage(imagePath)
               )
             ),
             width: 80,
