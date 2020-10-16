@@ -10,28 +10,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text('Hello Flutter')),
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _buildTile('Title 1'),
-              _buildTile('Title 2'),
-              _buildTile('Title 3'),
-              _buildTile('Title 4'),
-              _buildTile('Title 5'),
-              _buildTile('Title 6'),
-              _buildTile('Title 7'),
-              _buildTile('Title 8'),
-              _buildTile('Title 9'),
-              _buildTile('Title 10'),
-            ],
-          ),
-        ),
+        body: ListView.builder(
+          itemCount: 20,
+          itemBuilder: (BuildContext context, int index) {
+            return _buildTile(
+              imagePath: 'images/image.jpg',
+              title: 'Title $index', 
+              description: 'Description $index');
+          }
+        )
       ),
     );
   }
 
-  Widget _buildTile(String title) {
+  Widget _buildTile({ String imagePath, String title, String description }) {
     return Container(
       width: double.infinity,
       height: 100,
@@ -41,7 +33,7 @@ class MyApp extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               image: DecorationImage(
-                image: AssetImage('images/image.jpg')
+                image: AssetImage(imagePath)
               )
             ),
             width: 80,
@@ -57,10 +49,10 @@ class MyApp extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Title', style: TextStyle(
+                  Text(title, style: TextStyle(
                     fontWeight: FontWeight.w600
                   )),
-                  Text('Description', style: TextStyle(
+                  Text(description, style: TextStyle(
                     color: Colors.black54
                   )),
                   Spacer(),
