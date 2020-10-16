@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
 
   Widget _buildTile(String title) {
     return Container(
-      color: Colors.red,
+      // color: Colors.red,
       width: double.infinity,
       height: 100,
       child: Row(
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
             color: Colors.white,
             margin: EdgeInsets.only(left: 10),
             child: Center(
-              child: Text('Title'),
+              child: Image.asset('images/image.jpg'),
             ),
           ),
           Expanded(
