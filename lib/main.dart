@@ -13,20 +13,51 @@ class MyApp extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Container(
-              color: Colors.red,
-              width: 100,
-              height: 100,
-              child: Center(
-                child: Text('Item 1'),
-              ),
-            ),
-            Text('Item 2'),
-            Text('Item 3'),
-            Text('Item 4'),
-            Text('Item 5'),
+            _buildTile('Title 1'),
+            _buildTile('Title 2'),
+            _buildTile('Title 3'),
+            _buildTile('Title 4'),
+            _buildTile('Title 5'),
+            _buildTile('Title 4'),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildTile(String title) {
+    return Container(
+      color: Colors.red,
+      width: double.infinity,
+      height: 100,
+      child: Row(
+        children: [
+          Container(
+            width: 80,
+            height: 80,
+            color: Colors.white,
+            margin: EdgeInsets.only(left: 10),
+            child: Center(
+              child: Text('Title'),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              height: 80,
+              margin: EdgeInsets.only(left: 10),
+              color: Colors.white,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Title'),
+                  Text('Description')
+                ]
+              ),
+            )
+          ),
+          Icon(Icons.navigate_next_rounded)
+        ],
       ),
     );
   }
